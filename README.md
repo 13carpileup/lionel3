@@ -1,6 +1,6 @@
 # Lionel3
 Heavy WIP.
-Made using Deno and its framework Fresh. Hosted with Deno Deploy. Check this out at (add url here)
+Made using Deno and its framework Fresh. Hosted with Deno Deploy. Check this out at https://lionel3.deno.dev/
 
 ### Contributors
 - [13carpileup](https://github.com/13carpileup)
