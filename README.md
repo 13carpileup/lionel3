@@ -1,5 +1,16 @@
-# lionel3
+# Lionel3
+Heavy WIP.
+Made using Deno and its framework Fresh. Hosted with Deno Deploy. Check this out at (add url here)
 
-A recreation of lionel, but better. Heavy WIP
+### Contributors
+- [13carpileup](https://github.com/13carpileup)
+- [wylited](https://github.com/wylited)
+### Development
 
-Hosted on https://13carpileup-lionel3.deno.dev/ using deno deploy(https://deno.com/deploy). Framework is fresh (https://fresh.deno.dev/).
+Start the project:
+
+```
+deno task start
+```
+
+This will watch the project directory and restart as necessary.
