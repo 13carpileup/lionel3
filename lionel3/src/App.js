@@ -24,9 +24,17 @@ class Timer extends React.Component {
 
   render() {
     return (
-      <div>
-        Seconds: {this.state.seconds}
+      <html>
+        <head>
+          <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@600;100&display=swap" rel="stylesheet"></link>
+        </head>
+      <div class="pp-header">
+        <h1>Lionel 3</h1>
+        <p class="sub">It's like lionel 2, but better.</p>
       </div>
+      </html>
     );
   }
 }
