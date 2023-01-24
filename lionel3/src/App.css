@@ -3,11 +3,34 @@ body {
 }
 
 h1 {
-  color:#61dafb;
+  color:#f16ae8;
   font-family: 'Montserrat', sans-serif;
   font-size: 3.4em;
   margin-left: 40px;
   margin-bottom:8px;
+}
+
+form input, form textarea {
+  background-color: #494c51;
+  margin-left:40px;
+  border-radius: 3px;
+  border-color: #282c34;
+  border-top: 0px;
+  border-left: 0px;
+
+}
+
+form input:focus, form textarea:focus {
+  outline:none;
+  border-top:0px;
+}
+
+h2 {
+  color: #e9bdf0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  margin-left: 40px;
+  margin-top: 60px;
 }
 
 .sub {
