@@ -1,5 +1,8 @@
 export function Home() {
     return (
-        <p> home</p>
+        <>
+        <h1>Lionel 3</h1>
+        <p class="subheading">It's like lionel 2, but better.</p>
+        </>
     )
 }

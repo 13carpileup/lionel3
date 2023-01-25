@@ -1,0 +1,52 @@
+
+
+body {
+    margin:0;
+    background-color: #333;
+}
+
+ul {
+    margin:0;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(108, 108, 108);
+}
+  
+li {
+    float: left;
+    
+} 
+
+li a {
+    transition:background-color cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: rgb(66, 66, 66);
+}
+
+h1 {
+    margin-left:20px;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(195, 154, 234);
+    font-size: 70px;
+}
+
+p {
+    margin-left: 20px;
+}
+
+.subheading {
+    color:beige;
+    font-style: italic;
+    font-weight: 100;
+    margin-top:-40px;
+}

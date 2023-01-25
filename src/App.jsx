@@ -9,8 +9,8 @@ function App() {
     <>
     <nav>
       <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/schedule">schedules</Link></li>
+      <li><Link to="/">Lionel 3</Link></li>
+      <li><Link to="/schedule">Schedules</Link></li>
       </ul>
     </nav>
     <Routes>
