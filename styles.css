@@ -40,6 +40,13 @@ h1 {
     font-size: 70px;
 }
 
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(195, 154, 234);
+    font-size: 40px;
+    margin-left:20px;
+}
+
 p {
     margin-left: 20px;
 }

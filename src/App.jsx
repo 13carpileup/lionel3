@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import {Home} from "./pages/home"
-import { Schedule } from './pages/schedule'
+import { Countdown } from './pages/countdown'
 import { UserSchedule } from './pages/userSchedule'
 
 function App() {
@@ -10,13 +10,13 @@ function App() {
     <nav>
       <ul>
       <li><Link to="/">Lionel 3</Link></li>
-      <li><Link to="/schedule">Schedules</Link></li>
+      <li><Link to="/countdown">Mock Countdown</Link></li>
       </ul>
     </nav>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/schedule" element={<Schedule/>}/>
-      <Route path="/schedule:id" element={<UserSchedule/>}/>
+      <Route path="/countdown" element={<Countdown/>}/>
+      <Route path="/countdown:id" element={<UserSchedule/>}/>
     </Routes>
     </>
   )
