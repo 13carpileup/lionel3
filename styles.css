@@ -5,7 +5,7 @@ body {
     background-color: #333;
 }
 
-ul {
+nav ul {
     margin:0;
     list-style-type: none;
     padding: 0;
@@ -13,9 +13,8 @@ ul {
     background-color: rgb(108, 108, 108);
 }
   
-li {
-    float: left;
-    
+nav li {
+    float: left;    
 } 
 
 li a {
@@ -44,19 +43,16 @@ h2 {
     font-family: 'Montserrat', sans-serif;
     color: rgb(195, 154, 234);
     font-size: 40px;
-    margin-left:20px;
+    text-align: center;
 }
 
 h3 {
     font-family: 'Montserrat', sans-serif;
     color: rgb(222, 206, 237);
     font-size: 30px;
-    margin-left:20px;
+    text-align: center;
 }
 
-p {
-    margin-left: 20px;
-}
 
 .subheading {
     color:beige;
@@ -64,3 +60,41 @@ p {
     font-weight: 100;
     margin-top:-40px;
 }
+
+.subheading {
+    margin-left:20px;
+}
+
+#container span { 
+    display: inline;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+
+.timer ul {
+    margin:0;
+    list-style-type: none;
+    background-color: rgb(108, 108, 108);
+    width:40%;
+    padding:10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+.timer {
+    display: flex;
+    justify-content: center;
+}
+
+.col-4 {
+    display:inline-block;
+    margin:10px;
+    margin-left:15px;
+    margin-right:15px;
+    font-family: 'Roboto', sans-serif;
+    color:rgb(132, 46, 46);
+    font-size: 20px;
+}
+
+

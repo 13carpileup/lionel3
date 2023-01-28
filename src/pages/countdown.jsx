@@ -42,37 +42,33 @@ export function Countdown() {
         {/*<Link to="/schedule/1">Test</Link>*/}
         {deadline.map((x,i) =>
         <div>
-        <div class="timer"></div>
         <h3>{deadline[i][1]}</h3>
-        <div class="timer" role="timer">
-     <ul>
+        <div class="timer" role="timer" id="container">
+     <ul class = "timer">
       <li class="col-4">
         <div class="box">
-          <p id="day">{(days[i] < 10 && days[i] >= 0) ? "0" + days[i] : days[i]}
-          <span class="text"> Days</span></p>
+          <span class="num">{(days[i] < 10 && days[i] >= 0) ? "0" + days[i] : days[i]} Days</span>
         </div>
       </li>
       <li class="col-4">
         <div class="box">
-          <p id="hour">{(hours[i] < 10 && hours[i] >= 0) ? "0" + hours[i] : hours[i]}
-          <span class="text"> Hours</span></p>
+          <span class="num">{(hours[i] < 10 && hours[i] >= 0) ? "0" + hours[i] : hours[i]} Hours</span>
         </div>
       </li>    
       <li class="col-4">
         <div class="box">
-          <p id="minute">{(minutes[i] < 10 && minutes[i] >= 0) ? "0" + minutes[i] : minutes[i]}
-          <span class="text"> Minutes</span></p>
+          <span class="num">{(minutes[i] < 10 && minutes[i] >= 0) ? "0" + minutes[i] : minutes[i]} Minutes</span>
         </div>
       </li>
       <li class="col-4">
         <div class="box">
-          <p id="second">{(seconds[i] < 10 && minutes[i] >= 0) ? "0" + seconds[i] : seconds[i]}
-          <span class="text"> Seconds</span></p>
+          <span class="num">{(seconds[i] < 10 && minutes[i] >= 0) ? "0" + seconds[i] : seconds[i]} Seconds</span>
         </div>
       </li>
       </ul>
     </div>
     </div>
+    
         )}
         </div>
     )
