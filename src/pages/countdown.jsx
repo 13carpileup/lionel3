@@ -32,6 +32,7 @@ export function Countdown() {
 
 
     useEffect(() => {
+      getTime();
       const interval = setInterval(() => getTime(deadline), 1000);
       return () => clearInterval(interval);
     }, []);
