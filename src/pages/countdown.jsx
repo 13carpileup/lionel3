@@ -9,7 +9,7 @@ export function Countdown() {
     const [minutes, setMinutes] = useState([]);
     const [seconds, setSeconds] = useState([]);
 
-    const deadline = ["January, 30, 2023, 8:30","March, 30, 2023, 10:30"];
+    const deadline = [["January, 30, 2023, 8:30","Math P1"],["January, 30, 2023, 11:30","PRS P1"],["January, 31, 2023, 8:30","Euro Listening"],["January, 31, 2023, 11:30","Econ/Business"],["February, 2, 2023, 8:30", "English P2"],["February, 2, 2023, 11:15","DT/Comp sci P1"],["February, 3, 2023, 8:30","Biology"],["February, 3, 2023, 11:30","Chinese Reading/Writing"],["February, 6, 2023, 8:30", "Sound Of Fucking Waves"],["February, 6, 2023, 11:30","Chemistry"],["February, 7, 2023, 8:30","Euro Reading/Writing"],["February, 7, 2023, 11:15","Math P2"],["February, 9, 2023, 8:30","Chinese Writing/Listening"],["February, 9, 2023, 11:30","PRS P2"],["February, 10, 2023, 8:30","Physics"],["February, 10, 2023, 11:30","Comp sci P2"],["February, 10, 2023, 14:00","FPM"]];
 
     
 
@@ -21,7 +21,7 @@ export function Countdown() {
       setSeconds([]);
       
       for (let i = 0; i < deadline.length; i++) {
-        const time = Date.parse(deadline[i]) - Date.now();
+        const time = Date.parse(deadline[i][0]) - Date.now();
         
         setDays(oldArray => [...oldArray, Math.floor(time / (1000 * 60 * 60 * 24))]);
         setHours(oldArray => [...oldArray,Math.floor((time / (1000 * 60 * 60)) % 24)]);
@@ -43,6 +43,7 @@ export function Countdown() {
         {deadline.map((x,i) =>
         <div>
         <div class="timer"></div>
+        <h3>{deadline[i][1]}</h3>
         <div class="timer" role="timer">
      <ul>
       <li class="col-4">
