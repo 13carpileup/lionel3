@@ -74,8 +74,7 @@ h3 {
 .timer ul {
     margin:0;
     list-style-type: none;
-    background-color: rgb(108, 108, 108);
-    width:600px;
+    background-color: rgb(169, 169, 169);
     padding:10px;
     text-align: center;
     display: flex;
@@ -93,8 +92,27 @@ h3 {
     margin-left:15px;
     margin-right:15px;
     font-family: 'Roboto', sans-serif;
-    color:rgb(132, 46, 46);
-    font-size: 1.2em;
+    color:rgb(47, 19, 85);
+}
+
+@media (min-width:320px)  {  
+    .col-4 {
+        font-size: 0.76em;
+    }
+    .timer ul {
+        width:20em;
+
+    }
+}
+
+@media (min-width:641px)  { 
+    .col-4 {
+        font-size: 1.23em;
+    }
+    .timer ul {
+        width:40em;
+
+    }
 }
 
 
