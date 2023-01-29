@@ -9,7 +9,24 @@ export function Countdown() {
     const [minutes, setMinutes] = useState([]);
     const [seconds, setSeconds] = useState([]);
 
-    const deadline = [["January, 30, 2023, 8:30","Math P1"],["January, 30, 2023, 11:30","PRS P1"],["January, 31, 2023, 8:30","Euro Listening"],["January, 31, 2023, 11:30","Econ/Business"],["February, 2, 2023, 8:30", "English P2"],["February, 2, 2023, 11:15","DT/Comp sci P1"],["February, 3, 2023, 8:30","Biology"],["February, 3, 2023, 11:30","Chinese Reading/Writing"],["February, 6, 2023, 8:30", "Sound Of Fucking Waves"],["February, 6, 2023, 11:30","Chemistry"],["February, 7, 2023, 8:30","Euro Reading/Writing"],["February, 7, 2023, 11:15","Math P2"],["February, 9, 2023, 8:30","Chinese Writing/Listening"],["February, 9, 2023, 11:30","PRS P2"],["February, 10, 2023, 8:30","Physics"],["February, 10, 2023, 11:30","Comp sci P2"],["February, 10, 2023, 14:00","FPM"]];
+    const deadline = [
+    ["January, 30, 2023, 8:30","Math P1"],
+    ["January, 30, 2023, 11:30","PRS P1, Comp sci P1, Geo P1, Sports studies"],
+    ["January, 31, 2023, 8:30","Euro Listening"],
+    ["January, 31, 2023, 11:30","Econ/Business"],
+    ["February, 2, 2023, 8:30", "English Lang P2"],
+    ["February, 2, 2023, 11:15","DT, Comp sci P1, History P1, Music listening"],
+    ["February, 3, 2023, 8:30","Biology"],
+    ["February, 3, 2023, 11:30","Chinese Reading/Writing"],
+    ["February, 6, 2023, 8:30", "Sound Of Fucking Waves"],
+    ["February, 6, 2023, 11:30","Chemistry"],
+    ["February, 7, 2023, 8:30","Euro Reading/Writing"],
+    ["February, 7, 2023, 11:15","Math P2"],
+    ["February, 9, 2023, 8:30","Chinese Writing/Listening"],
+    ["February, 9, 2023, 11:30","PRS P2, Psychology, PRS P2"],
+    ["February, 10, 2023, 8:30","Physics"],
+    ["February, 10, 2023, 11:30","Geo P2, FPM, Drama"],
+    ["February, 10, 2023, 14:00","FPM (cool people)"]];
 
     
 
@@ -42,35 +59,36 @@ export function Countdown() {
         <h2>Mock Countdown</h2>
         {/*<Link to="/schedule/1">Test</Link>*/}
         {deadline.map((x,i) =>
-        <div>
-        <h3>{deadline[i][1]}</h3>
-        <div class="timer" role="timer" id="container">
-     <ul class = "timer">
-      <li class="col-4">
-        <div class="box">
-          <span class="num">{(days[i] < 10 && days[i] >= 0) ? "0" + days[i] : days[i]} Days</span>
-        </div>
-      </li>
-      <li class="col-4">
-        <div class="box">
-          <span class="num">{(hours[i] < 10 && hours[i] >= 0) ? "0" + hours[i] : hours[i]} Hours</span>
-        </div>
-      </li>    
-      <li class="col-4">
-        <div class="box">
-          <span class="num">{(minutes[i] < 10 && minutes[i] >= 0) ? "0" + minutes[i] : minutes[i]} Minutes</span>
-        </div>
-      </li>
-      <li class="col-4">
-        <div class="box">
-          <span class="num">{(seconds[i] < 10 && minutes[i] >= 0) ? "0" + seconds[i] : seconds[i]} Seconds</span>
-        </div>
-      </li>
-      </ul>
-    </div>
-    </div>
-    
+          <div class="cont">
+            <hr/>
+            <h3>{deadline[i][1]}</h3>
+            <div class="timer" role="timer" id="container">
+              <ul class = "timer">
+                <li class="col-4">
+                <div class="box">
+                  <span class="num">{(days[i] < 10 && days[i] >= 0) ? "0" + days[i] : days[i]} Days</span>
+                </div>
+                </li>
+                <li class="col-4">
+                  <div class="box">
+                    <span class="num">{(hours[i] < 10 && hours[i] >= 0) ? "0" + hours[i] : hours[i]} Hours</span>
+                  </div>
+                </li>    
+                <li class="col-4">
+                  <div class="box">
+                    <span class="num">{(minutes[i] < 10 && minutes[i] >= 0) ? "0" + minutes[i] : minutes[i]} Minutes</span>
+                  </div>
+                </li>
+                <li class="col-4">
+                  <div class="box">
+                    <span class="num">{(seconds[i] < 10 && minutes[i] >= 0) ? "0" + seconds[i] : seconds[i]} Seconds</span>
+                  </div>
+                </li>
+              </ul>
+            </div>      
+          </div>
         )}
+        <hr/>
         </div>
     )
 }
