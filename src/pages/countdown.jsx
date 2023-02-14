@@ -10,23 +10,46 @@ export function Countdown() {
     const [seconds, setSeconds] = useState([]);
 
     const deadline = [
-    ["January, 30, 2023, 8:30","Math P1"],
-    ["January, 30, 2023, 11:30","PRS P1, Comp sci P1, Geo P1, Sports studies"],
-    ["January, 31, 2023, 8:30","Euro Listening"],
-    ["January, 31, 2023, 11:30","Econ/Business"],
-    ["February, 2, 2023, 8:30", "English Lang P2"],
-    ["February, 2, 2023, 11:15","DT, Comp sci P1, History P1, Music listening"],
-    ["February, 3, 2023, 8:30","Biology"],
-    ["February, 3, 2023, 11:30","Chinese Reading/Writing"],
-    ["February, 6, 2023, 8:30", "Sound Of Fucking Waves"],
-    ["February, 6, 2023, 11:30","Chemistry"],
-    ["February, 7, 2023, 8:30","Euro Reading/Writing"],
-    ["February, 7, 2023, 11:15","Math P2"],
-    ["February, 9, 2023, 8:30","Chinese Writing/Listening"],
-    ["February, 9, 2023, 11:30","PRS P2, Psychology, PRS P2"],
-    ["February, 10, 2023, 8:30","Physics"],
-    ["February, 10, 2023, 11:30","Geo P2, FPM, Drama"],
-    ["February, 10, 2023, 14:00","FPM (cool people)"]];
+    ["April, 26, 2023, 8:30","Chinese 2nd Lang"],
+    ["April, 28, 2023, 8:30","Chinese 2nd Lang"],
+    ["May, 3, 2023, 8:30","English Lang"],
+    ["May, 3, 2023, 8:30","Geography"],
+    ["May, 5, 2023, 8:30","English Lang"],
+    ["May, 11, 2023, 8:30","Chinese 1st Lang"],
+    ["May, 12, 2023, 8:30","Computer Science"],
+    ["May, 15, 2023, 8:30","Business"],
+    ["May, 15, 2023, 8:30","Geography"],
+    ["May, 15, 2023, 8:30","English World Literature"],
+    ["May, 15, 2023, 8:30","Religious Studies"],
+    ["May, 16, 2023, 8:30","Biology"],
+    ["May, 17, 2023, 8:30","English World Literature"],
+    ["May, 18, 2023, 8:30","Computer Science"],
+    ["May, 18, 2023, 8:30","Chinese 1st Lang"],
+    ["May, 18, 2023, 8:30","History"],
+    ["May, 19, 2023, 8:30","Sports Studies"],
+    ["May, 19, 2023, 8:30","Psychology"],
+    ["May, 19, 2023, 8:30","Maths"],
+    ["May, 22, 2023, 8:30","Business"],
+    ["May, 22, 2023, 8:30","Chinese Foreign Lang"],
+    ["May, 22, 2023, 8:30","Chemistry"],
+    ["May, 23, 2023, 8:30","Music"],
+    ["May, 23, 2023, 8:30","French"],
+    ["May, 23, 2023, 8:30","Religious Studies"],
+    ["May, 24, 2023, 8:30","Chinese Foreign Lang"],
+    ["May, 24, 2023, 8:30","Economics"],
+    ["May, 25, 2023, 8:30","Physics"],
+    ["May, 26, 2023, 8:30","Drama"],
+    ["May, 26, 2023, 8:30","Psychology"],
+    ["May, 26, 2023, 8:30","Further Pure Maths"],
+    ["May, 26, 2023, 8:30","German"],
+    ["June, 6, 2023, 8:30","Spanish"],
+    ["June, 7, 2023, 8:30","History"],
+    ["June, 7, 2023, 8:30","Maths"],
+    ["June, 8, 2023, 8:30","Further Pure Maths"],
+    ["June, 14, 2023, 8:30","Economics"],
+    ["June, 19, 2023, 8:30","DT"],
+    ["June, 20, 2023, 8:30","Food Tech"]
+    ];
 
     
 
@@ -56,7 +79,7 @@ export function Countdown() {
 
     return (
       <>
-        <div class="parallax">⠀
+        <div class="parallax">
 
         <h2>Mock Countdown</h2>
         
