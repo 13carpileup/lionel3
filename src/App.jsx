@@ -12,7 +12,7 @@ function App() {
     <nav>
       <ul>
       <li><Link to="/">Lionel 3</Link></li>
-      <li><Link to="/countdown">Mock Countdown</Link></li>
+      <li><Link to="/countdown">Exam Countdown</Link></li>
       </ul>
     </nav>
     <Routes>

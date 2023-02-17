@@ -81,7 +81,7 @@ export function Countdown() {
       <>
         <div class="parallax">
 
-        <h2>Mock Countdown</h2>
+        <h2>Exam Countdown</h2>
         
         {/*<Link to="/schedule/1">Test</Link>*/}
         {deadline.map((x,i) =>
