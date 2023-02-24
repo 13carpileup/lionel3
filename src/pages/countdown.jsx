@@ -10,6 +10,7 @@ export function Countdown() {
     const [seconds, setSeconds] = useState([]);
 
     const deadline = [
+    ["March, 27, 2023, 8:15","Spanish Orals"],
     ["April, 14, 2023, 3:20","Study Leave"],
     ["April, 26, 2023, 8:30","Chinese 2nd Lang"],
     ["April, 28, 2023, 8:30","Chinese 2nd Lang"],

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.8",
+    "formik": "^2.2.9",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "pnpm": "^7.26.1",
