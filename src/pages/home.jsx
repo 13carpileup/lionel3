@@ -1,38 +1,33 @@
 import { Formik } from 'formik';
-
+import { redirect } from "react-router-dom";
  
 
 export function Home() {
     
     return (
         <>
+        
         <div>
             <h1>Lionel 3</h1>
             <p class="subheading">It's like lionel 2, but better.</p>
+            <br></br>
+            <h4 class="rqst">Please enter your username:</h4>
             <Formik
-            initialValues={{ email: '', password: '' }}
+            initialValues={{ email: ''}}
             validate={values => {
                 const errors = {};
                 if (!values.email) {
-                errors.email = 'Required';
-                } else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                ) {
-                errors.email = 'Invalid email address';
+                    errors.email = 'Required';
                 }
                 return errors;
             }}
-            onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-                }, 400);
+            onSubmit={(values   ) => {
+                window.location.replace('/#/user/' + values.email);
+                window.location.reload();
             }}
             >
             {({
                 values,
-                errors,
-                touched,
                 handleChange,
                 handleBlur,
                 handleSubmit,
@@ -41,23 +36,14 @@ export function Home() {
             }) => (
                 <form onSubmit={handleSubmit}>
                 <input
-                    type="email"
+                    class="emailEntry"
                     name="email"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
                 />
-                {errors.email && touched.email && errors.email}
-                <input
-                    type="password"
-                    name="password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                />
-                {errors.password && touched.password && errors.password}
-                <button type="submit" disabled={isSubmitting}>
-                    Submit
+                <button class = "mainButton" type="submit" disabled={isSubmitting}>
+                    Send
                 </button>
                 </form>
             )}

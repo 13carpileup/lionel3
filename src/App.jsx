@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import {Home} from "./pages/home"
 import { Countdown } from './pages/countdown'
-import { UserSchedule } from './pages/userSchedule'
+import { UserPage } from './pages/userPage'
 import { Analytics } from '@vercel/analytics/react';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/countdown" element={<Countdown/>}/>
-      <Route path="/countdown:id" element={<UserSchedule/>}/>
+      <Route path="/user/:id" element={<UserPage/>}/>
     </Routes>
     </>
   )

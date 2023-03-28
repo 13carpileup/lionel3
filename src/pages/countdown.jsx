@@ -3,57 +3,68 @@ import { useState, useEffect } from 'react';
 
 
 export function Countdown() {
-    const array=[1,23]
     const [days, setDays] = useState([]);
     const [hours, setHours] = useState([]);
     const [minutes, setMinutes] = useState([]);
     const [seconds, setSeconds] = useState([]);
-
+    const stor = [];
     const deadline = [
-    ["March, 27, 2023, 8:15","Spanish Orals"],
+    ["January, 1, 2023, 0:00","New Year's Day"],
     ["April, 21, 2023, 3:20","Study Leave"],
-    ["April, 26, 2023, 8:30","Chinese 2nd Lang"],
-    ["April, 28, 2023, 8:30","Chinese 2nd Lang"],
-    ["May, 3, 2023, 8:30","English Lang"],
-    ["May, 3, 2023, 8:30","Geography"],
-    ["May, 5, 2023, 8:30","English Lang"],
-    ["May, 11, 2023, 8:30","Chinese 1st Lang"],
-    ["May, 12, 2023, 8:30","Computer Science"],
-    ["May, 15, 2023, 8:30","Business"],
-    ["May, 15, 2023, 8:30","Geography"],
-    ["May, 15, 2023, 8:30","English World Literature"],
-    ["May, 15, 2023, 8:30","Religious Studies"],
-    ["May, 16, 2023, 8:30","Biology"],
-    ["May, 17, 2023, 8:30","English World Literature"],
-    ["May, 18, 2023, 8:30","Computer Science"],
-    ["May, 18, 2023, 8:30","Chinese 1st Lang"],
-    ["May, 18, 2023, 8:30","History"],
-    ["May, 19, 2023, 8:30","Sports Studies"],
-    ["May, 19, 2023, 8:30","Psychology"],
-    ["May, 19, 2023, 8:30","Maths"],
-    ["May, 22, 2023, 8:30","Business"],
-    ["May, 22, 2023, 8:30","Chinese Foreign Lang"],
-    ["May, 22, 2023, 8:30","Chemistry"],
-    ["May, 23, 2023, 8:30","Music"],
-    ["May, 23, 2023, 8:30","French"],
-    ["May, 23, 2023, 8:30","Religious Studies"],
-    ["May, 24, 2023, 8:30","Chinese Foreign Lang"],
-    ["May, 24, 2023, 8:30","Economics"],
-    ["May, 25, 2023, 8:30","Physics"],
-    ["May, 26, 2023, 8:30","Drama"],
-    ["May, 26, 2023, 8:30","Psychology"],
-    ["May, 26, 2023, 8:30","Further Pure Maths"],
-    ["May, 26, 2023, 8:30","German"],
-    ["June, 6, 2023, 8:30","Spanish"],
-    ["June, 7, 2023, 8:30","History"],
-    ["June, 7, 2023, 8:30","Maths"],
-    ["June, 8, 2023, 8:30","Further Pure Maths"],
-    ["June, 14, 2023, 8:30","Economics"],
-    ["June, 19, 2023, 8:30","DT"],
-    ["June, 20, 2023, 8:30","Food Tech"]
+    ["April, 26, 2023, 13:00","Chinese 2nd Lang Writing/Reading"],
+    ["April, 28, 2023, 12:15","Chinese 2nd Lang Listening"],
+    ["May, 3, 2023, 8:30","Geography Themes"],
+    ["May, 3, 2023, 11:00","English Lang P1"],
+    ["May, 5, 2023, 11:00","English Lang P2"],
+    ["May, 11, 2023, 9:00","Chinese 1st Lang Reading"],
+    ["May, 12, 2023, 11:30","Computer Science P1"],
+    ["May, 15, 2023, 8:30","Geography Skills"],
+    ["May, 15, 2023, 10:45","Business P1"],
+    ["May, 15, 2023, 13:00","English Lit Unseen"],
+    ["May, 15, 2023, 15:30","PRS P1"],
+    ["May, 16, 2023, 12:30","Biology"],
+    ["May, 17, 2023, 11:30","English Lit SOW"],
+    ["May, 18, 2023, 8:30","Chinese 1st Lang Writing"],
+    ["May, 18, 2023, 11:00","Computer Science P2"],
+    ["May, 18, 2023, 13:30","History Depth"],
+    ["May, 19, 2023, 9:00","Sports Studies Theory"],
+    ["May, 19, 2023, 12:30","Maths P1"],
+    ["May, 19, 2023, 19:00","Psychology P1"],
+    ["May, 22, 2023, 8:30","Business P2"],
+    ["May, 22, 2023, 10:45","Chinese Foreign Lang Listening/Writing"],
+    ["May, 22, 2023, 13:30","Chemistry"],
+    ["May, 23, 2023, 9:00","Music Listening"],
+    ["May, 23, 2023, 12:30","French"],
+    ["May, 23, 2023, 19:00","PRS P2"],
+    ["May, 24, 2023, 13:00","Chinese Foreign Lang Reading"],
+    ["May, 24, 2023, 15:30","Economics P1"],
+    ["May, 25, 2023, 12:30","Physics"],
+    ["May, 26, 2023, 9:00","Drama"],
+    ["May, 26, 2023, 12:30","German"],
+    ["May, 26, 2023, 16:30","FPM P1"],
+    ["May, 26, 2023, 19:30","Psychology P1"],
+    ["June, 6, 2023, 13:00","Spanish"],
+    ["June, 7, 2023, 12:30","Maths P2"],
+    ["June, 7, 2023, 8:30","History Breadth"],
+    ["June, 8, 2023, 8:30","FPM P2"],
+    ["June, 9, 2023, 15:30","Biology Triple"],
+    ["June, 13, 2023, 13:30","Chemistry Triple"],
+    ["June, 14, 2023, 15:30","Economics P2"],
+    ["June, 16, 2023, 12:30","Physics Triple"],
+    ["June, 19, 2023, 15:00","DT"],
+    ["June, 20, 2023, 15:15","Food Tech"]
     ];
-
     
+    for (let i = 0; i < deadline.length; i++) {
+      const time = Date.parse(deadline[i][0]) - Date.now();
+      if (time < 0) {
+        stor.push(i);
+      }
+    }
+
+    for (let i = stor.length-1; i >= 0  ; i--) {
+      deadline.splice(stor[i],1);
+    }
 
     const getTime = () => {
       
@@ -61,14 +72,13 @@ export function Countdown() {
       setHours([]);
       setMinutes([]);
       setSeconds([]);
-      
       for (let i = 0; i < deadline.length; i++) {
         const time = Date.parse(deadline[i][0]) - Date.now();
-        
         setDays(oldArray => [...oldArray, Math.floor(time / (1000 * 60 * 60 * 24))]);
         setHours(oldArray => [...oldArray,Math.floor((time / (1000 * 60 * 60)) % 24)]);
         setMinutes(oldArray => [...oldArray,Math.floor((time / 1000 / 60) % 60)]);
         setSeconds(oldArray => [...oldArray,Math.floor((time / 1000) % 60)]);
+        
       }
     };
 
