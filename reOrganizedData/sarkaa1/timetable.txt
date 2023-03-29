@@ -1,0 +1,224 @@
+
+Week 1
+
+Monday
+
+Period 1
+12PS601
+ @SSC4
+
+Period 2
+12AA503
+ @MA502
+
+Period 3
+12EU601
+ @EN203
+
+Period 4
+12BI502
+ @SC402
+
+Period 5
+12PS601
+ @SSC4
+
+Tuesday
+
+Period 1
+12BI502
+ @SC402
+
+Period 2
+12PE102
+ @PE
+
+Period 3
+12PS601
+ @SSC4
+
+Period 4
+12TP708
+ @IS303
+
+Period 5
+12TA601
+ @DS502
+
+Wednesday
+
+Period 1
+12PS601
+ @SSC4
+
+Period 2
+12CF502
+ @LA306
+
+Period 3
+12BI502
+ @SC402
+
+Period 4
+12EU601
+ @EN203
+
+Period 5
+12TA601
+ @DS502
+
+Thursday
+
+Period 1
+12EU601
+ @EN203
+
+Period 2
+12AA503
+ @MA502
+
+Period 3
+12PE102
+ @PE
+
+Period 4
+12PS601
+ @SSC4
+
+Period 5
+12TA601
+ @DS501
+
+Friday
+
+Period 1
+12PS601
+ @SSC4
+
+Period 2
+12TP708
+ @IS303
+
+Period 3
+12BI502
+ @SC402
+
+Period 4
+12CF502
+ @LA306
+
+Period 5
+12EU601
+ @EN203
+
+Week 2
+
+Monday
+
+Period 1
+12TA601
+ @DS501
+
+Period 2
+12CF502
+ @LA306
+
+Period 3
+12AA503
+ @MA502
+
+Period 4
+12TA601
+ @DS501
+
+Period 5
+12EU601
+ @EN203
+
+Tuesday
+
+Period 1
+12TP708
+ @IS209
+
+Period 2
+12PS601
+ @SSC4
+
+Period 3
+12TP708
+ @IS209
+
+Period 4
+12AA503
+ @MA502
+
+Period 5
+12TA601
+ @DS502
+
+Wednesday
+
+Period 1
+12AA503
+ @MA502
+
+Period 2
+12EU601
+ @EN203
+
+Period 3
+12EU601
+ @EN203
+
+Period 4
+12CF502
+ @LA306
+
+Period 5
+12BI502
+ @SC402
+
+Thursday
+
+Period 1
+12CF502
+ @LA306
+
+Period 2
+12TA601
+ @DS501
+
+Period 3
+12PS601
+ @SSC4
+
+Period 4
+12AA503
+ @MA502
+
+Period 5
+12EU601
+ @EN203
+
+Friday
+
+Period 1
+12BI502
+ @SC402
+
+Period 2
+12PS601
+ @SSC4
+
+Period 3
+12BI502
+ @SC402
+
+Period 4
+12PE102
+ @PE
+
+Period 5
+12PS601
+ @SSC4

@@ -185,3 +185,34 @@ hr {
     background-color: #d8a9fa;
     outline: none;
 }
+
+.body {
+    opacity: 1;
+}
+
+.body {
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-enter {
+    opacity: 0;
+    transform: translate(0, 25px);
+    z-index: 1;
+  }
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transform: translate(0, 0);
+  
+    transition: opacity 250ms ease-out, transform 300ms ease;
+  }
+  .fade-exit {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  .fade-exit.fade-exit-active {
+    opacity: 0;
+    transform: translate(0, 30px);
+  
+    transition: opacity 250ms ease-out, transform 300ms ease;
+  }
+  

@@ -90,7 +90,7 @@ export function Countdown() {
     }, []);
 
     return (
-      <>
+      <div class="fade">
         <div class="parallax">
 
         <h2>Exam Countdown</h2>
@@ -128,6 +128,7 @@ export function Countdown() {
         )}
         <hr/>
         </div>
-        </>
+        </div>
+        
     )
 }

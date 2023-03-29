@@ -1,0 +1,224 @@
+
+Week 1
+
+Monday
+
+Period 1
+09EN111
+ @EN205
+
+Period 2
+09MA110
+ @MA406
+
+Period 3
+09GG111
+ @IS304
+
+Period 4
+09MU102
+ @MS301
+
+Period 5
+09PE111
+ @PE
+
+Tuesday
+
+Period 1
+09MU102
+ @MS301
+
+Period 2
+09LF103
+ @LA203
+
+Period 3
+09MA110
+ @MA406
+
+Period 4
+09SC111
+ @SC503
+
+Period 5
+09SC111
+ @SC503
+
+Wednesday
+
+Period 1
+09LC104
+ @LA303
+
+Period 2
+09EN111
+ @EN205
+
+Period 3
+09MU102
+ @MS301
+
+Period 4
+09MA110
+ @MA406
+
+Period 5
+09LF103
+ @LA203
+
+Thursday
+
+Period 1
+09EN111
+ @RC
+
+Period 2
+09CP111
+ @ICT1
+
+Period 3
+09MA110
+ @MA406
+
+Period 4
+09PE111
+ @LA302
+
+Period 5
+09SC111
+ @SC302
+
+Friday
+
+Period 1
+09PE111
+ @PE
+
+Period 2
+09LF103
+ @LA203
+
+Period 3
+09LC104
+ @LA303
+
+Period 4
+09RS111
+ @IS207
+
+Period 5
+09DT112
+ @DT3
+
+Week 2
+
+Monday
+
+Period 1
+09EN111
+ @EN205
+
+Period 2
+09LC104
+ @LA303
+
+Period 3
+09DT112
+ @DT3
+
+Period 4
+09MU102
+ @MS301
+
+Period 5
+09PE111
+ @LA302
+
+Tuesday
+
+Period 1
+09CP111
+ @ICT1
+
+Period 2
+09MA110
+ @MA406
+
+Period 3
+09RS111
+ @IS207
+
+Period 4
+09LF103
+ @LA203
+
+Period 5
+09HI111
+ @IS205
+
+Wednesday
+
+Period 1
+09GG111
+ @IS304
+
+Period 2
+09HI111
+ @IS205
+
+Period 3
+09DT112
+ @DT3
+
+Period 4
+09MU102
+ @MS301
+
+Period 5
+09EN111
+ @EN205
+
+Thursday
+
+Period 1
+09SC111
+ @SC302
+
+Period 2
+09MA110
+ @MA406
+
+Period 3
+09EN111
+ @EN205
+
+Period 4
+09SC111
+ @SC302
+
+Period 5
+09PE111
+ @PE
+
+Friday
+
+Period 1
+09DT112
+ @DT3
+
+Period 2
+09MU102
+ @MS301
+
+Period 3
+09SC111
+ @SC302
+
+Period 4
+09PE111
+ @PE
+
+Period 5
+09LC104
+ @LA303

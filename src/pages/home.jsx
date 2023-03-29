@@ -5,9 +5,9 @@ import { redirect } from "react-router-dom";
 export function Home() {
     
     return (
-        <>
         
-        <div>
+        
+        <div class = "fade">
             <h1>Lionel 3</h1>
             <p class="subheading">It's like lionel 2, but better.</p>
             <br></br>
@@ -49,7 +49,7 @@ export function Home() {
             )}
             </Formik>
         </div>
-        </>
+        
     )
 }
 

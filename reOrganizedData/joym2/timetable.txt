@@ -1,0 +1,224 @@
+
+Week 1
+
+Monday
+
+Period 1
+07CA110
+ @ME2
+
+Period 2
+07SC110
+ @SC103
+
+Period 3
+07LC107
+ @BR2
+
+Period 4
+07PE110
+ @PE
+
+Period 5
+07CA110
+ @MS201
+
+Tuesday
+
+Period 1
+07PE110
+ @PE
+
+Period 2
+07MA110
+ @MA405
+
+Period 3
+07EN110
+ @LA202
+
+Period 4
+07LS102
+ @LA201
+
+Period 5
+07CA110
+ @MS201
+
+Wednesday
+
+Period 1
+07CA110
+ @ME2
+
+Period 2
+07SC110
+ @SC103
+
+Period 3
+07IS110
+ @IS305
+
+Period 4
+07DT113
+ @F1
+
+Period 5
+07PE110
+ @PE
+
+Thursday
+
+Period 1
+07LS102
+ @LA201
+
+Period 2
+07IS110
+ @IS305
+
+Period 3
+07MA110
+ @MA405
+
+Period 4
+07LC107
+ @BR2
+
+Period 5
+07EN110
+ @LA202
+
+Friday
+
+Period 1
+07DT113
+ @F1
+
+Period 2
+07CA110
+ @MS201
+
+Period 3
+07MA110
+ @MA405
+
+Period 4
+07EN110
+ @LA202
+
+Period 5
+07SC110
+ @SC103
+
+Week 2
+
+Monday
+
+Period 1
+07LS102
+ @LA201
+
+Period 2
+07IS110
+ @IS305
+
+Period 3
+07PE110
+ @PE
+
+Period 4
+07CP110
+ @ICT2
+
+Period 5
+07CA110
+ @ME2
+
+Tuesday
+
+Period 1
+07LC107
+ @BR2
+
+Period 2
+07IS110
+ @IS305
+
+Period 3
+07EN110
+ @LA202
+
+Period 4
+07CA110
+ @ME2
+
+Period 5
+07DT113
+ @F1
+
+Wednesday
+
+Period 1
+07IS110
+ @IS305
+
+Period 2
+07PE110
+ @LA204
+
+Period 3
+07MA110
+ @MA405
+
+Period 4
+07EN110
+ @RC
+
+Period 5
+07LC107
+ @BR2
+
+Thursday
+
+Period 1
+07EN110
+ @LA202
+
+Period 2
+07IS110
+ @IS305
+
+Period 3
+07CA110
+ @MS201
+
+Period 4
+07SC110
+ @SC103
+
+Period 5
+07LS102
+ @LA201
+
+Friday
+
+Period 1
+07CP110
+ @ICT2
+
+Period 2
+07MA110
+ @MA405
+
+Period 3
+07DT113
+ @F1
+
+Period 4
+07SC110
+ @SC301
+
+Period 5
+07PE110
+ @EN201
