@@ -10,7 +10,7 @@ export function Countdown() {
     const stor = [];
     const deadline = [
     ["January, 1, 2023, 0:00","New Year's Day"],
-    ["April, 21, 2023, 3:20","Study Leave"],
+    ["April, 21, 2023, 15:20","Study Leave"],
     ["April, 26, 2023, 13:00","Chinese 2nd Lang Writing/Reading"],
     ["April, 28, 2023, 12:15","Chinese 2nd Lang Listening"],
     ["May, 3, 2023, 8:30","Geography Themes"],
@@ -52,11 +52,13 @@ export function Countdown() {
     ["June, 14, 2023, 15:30","Economics P2"],
     ["June, 16, 2023, 12:30","Physics Triple"],
     ["June, 19, 2023, 15:00","DT"],
-    ["June, 20, 2023, 15:15","Food Tech"]
+    ["June, 20, 2023, 15:15","Food Tech"],
+    ["August, 16, 2023, 13:00", "Cambridge Results"],
+    ["August, 24, 2023, 15:30", "Pearson/AQA Results"]
     ];
     
     for (let i = 0; i < deadline.length; i++) {
-      const time = Date.parse(deadline[i][0]) - Date.now();
+      const time = Date.parse(deadline[i][0])  - Date.now();
       if (time < 0) {
         stor.push(i);
       }

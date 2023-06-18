@@ -154,7 +154,6 @@ hr {
     transition-duration: 500ms;
     color: rgb(59, 34, 0);
     font-family: 'Poppins', sans-serif;
-    display:inline;
 }
 
 .mainButton {
@@ -165,7 +164,6 @@ hr {
     border-color:rgb(255, 169, 249);
     box-shadow: none;
     transition-duration:200ms;
-    display:inline;
 }
 
 .mainButton:hover {
@@ -215,4 +213,8 @@ hr {
   
     transition: opacity 350ms ease-out, transform 400ms ease;
   }
+
+.sub {
+    display:block;
+}
   

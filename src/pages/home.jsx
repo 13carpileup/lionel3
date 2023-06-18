@@ -11,6 +11,7 @@ export function Home() {
             <h1>Lionel 3</h1>
             <p class="subheading">It's like lionel 2, but better.</p>
             <br></br>
+            <div class = "sub">
             <h4 class="rqst">Please enter your username:</h4>
             <Formik
             initialValues={{ email: ''}}
@@ -47,7 +48,10 @@ export function Home() {
                 </button>
                 </form>
             )}
+            
             </Formik>
+
+            </div>
         </div>
         
     )

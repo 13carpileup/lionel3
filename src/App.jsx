@@ -19,7 +19,7 @@ function App() {
       <nav>
         <ul>
         <li><Link to="/">Lionel 3</Link></li>
-        <li><Link to="/countdown">Exam Countdown</Link></li>
+        <li><Link to="/countdown">Results Countdown</Link></li>
         </ul>
       </nav>
 
