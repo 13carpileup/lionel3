@@ -10,7 +10,8 @@ export function Countdown() {
     const stor = [];
     const deadline = [
     ["August, 16, 2023, 13:00", "Cambridge Results"],
-    ["August, 24, 2023, 16:00", "Pearson/AQA Results (9s incoming)"]
+    ["August, 24, 2023, 16:00", "Pearson/AQA Results (9s incoming)"],
+    ["August, 25, 2023, 10:15", "Pearson/AQA Results (9s incoming)"]
     ];
     
     for (let i = 0; i < deadline.length; i++) {
