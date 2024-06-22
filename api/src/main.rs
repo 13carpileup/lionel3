@@ -6,23 +6,18 @@ use axum::{
     routing::post,
     handler::Handler,
     Router,
-    debug_handler,
 };
 
 
-// TESTING
-use uuid::Uuid;
+// STUDENT GETTERS
 
-async fn user_info(Path(user_id): Path<Uuid>) -> String {
+async fn student(Path(user_id): Path<u64>) -> String {
     user_id.to_string()
 }
-
-// TESTING
 
 
 
 // main
-#[debug_handler]
 #[tokio::main]
 async fn main() {
     // routes
@@ -30,7 +25,7 @@ async fn main() {
     .route("/", get(root))
     .route("/foo", get(get_foo).post(post_foo))
     .route("/foo/bar", get(foo_bar))
-    .route("/users/:user_id", get(user_info));
+    .route("/users/:user_id", get(student));
 
     // running with hyper, listening globally on port 3000
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
@@ -38,7 +33,7 @@ async fn main() {
 }
 
 
-// route functions (async, type dec)
+// main route functions (async, type dec)
 async fn root() -> &'static str {
      "Hello, !" 
 }
