@@ -1,0 +1,1 @@
+fn(axum::extract::Path<Uuid>) -> impl std::future::Future<Output = impl IntoResponse> {user_info}
