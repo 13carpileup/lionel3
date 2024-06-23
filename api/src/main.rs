@@ -7,6 +7,7 @@ use axum::{
 
 use serde::{Deserialize, Serialize};
 use std::fs;
+use tower_http::{cors::CorsLayer, trace::TraceLayer};
 
 // baby structs
 #[derive(Deserialize, Serialize, Debug, Clone)]
@@ -43,7 +44,9 @@ async fn main() {
     .route("/", get(root))
     .route("/foo", get(get_foo).post(post_foo))
     .route("/foo/bar", get(foo_bar))
-    .route("/students/:student_id", get(student));
+    .route("/students/:student_id", get(student))
+    .layer(TraceLayer::new_for_http())
+    .layer(CorsLayer::permissive());
 
     // running with hyper, listening globally on port 3000
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();

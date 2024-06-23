@@ -14,7 +14,6 @@ function App() {
   const location = useLocation();
   return (
     <>
-      
       <Analytics />
       <nav>
         <ul>

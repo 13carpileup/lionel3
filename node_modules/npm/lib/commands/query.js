@@ -1,8 +1,8 @@
 'use strict'
 
 const { resolve } = require('path')
-const Arborist = require('@npmcli/arborist')
 const BaseCommand = require('../base-command.js')
+const log = require('../utils/log-shim.js')
 
 class QuerySelectorItem {
   constructor (node) {
@@ -49,6 +49,7 @@ class Query extends BaseCommand {
     'workspace',
     'workspaces',
     'include-workspace-root',
+    'package-lock-only',
   ]
 
   get parsedResponse () {
@@ -58,13 +59,25 @@ class Query extends BaseCommand {
   async exec (args) {
     // one dir up from wherever node_modules lives
     const where = resolve(this.npm.dir, '..')
+    const Arborist = require('@npmcli/arborist')
     const opts = {
       ...this.npm.flatOptions,
       path: where,
       forceActual: true,
     }
     const arb = new Arborist(opts)
-    const tree = await arb.loadActual(opts)
+    let tree
+    if (this.npm.config.get('package-lock-only')) {
+      try {
+        tree = await arb.loadVirtual()
+      } catch (err) {
+        log.verbose('loadVirtual', err.stack)
+        /* eslint-disable-next-line max-len */
+        throw this.usageError('A package lock or shrinkwrap file is required in package-lock-only mode')
+      }
+    } else {
+      tree = await arb.loadActual(opts)
+    }
     const items = await tree.querySelectorAll(args[0], this.npm.flatOptions)
     this.buildResponse(items)
 
@@ -73,6 +86,7 @@ class Query extends BaseCommand {
 
   async execWorkspaces (args) {
     await this.setWorkspaces()
+    const Arborist = require('@npmcli/arborist')
     const opts = {
       ...this.npm.flatOptions,
       path: this.npm.prefix,
