@@ -28,7 +28,7 @@ function App() {
             <Route path="/" element={<Home/>}/>
             
             <Route path="/countdown" element={<Countdown/>}/>
-            <Route path="/user/:id" element={<UserPage/>}/>
+            <Route path="/user/:userID" element={<UserPage/>}/>
           </Routes>
         </CSSTransition>
       </TransitionGroup>

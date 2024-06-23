@@ -218,3 +218,15 @@ hr {
     display:block;
 }
   
+
+/* PERSON PAGE */
+
+.name {
+    color:#d8a9fa;
+    margin:2vw;
+    font-size:2vw;
+}
+
+.subjectList { 
+    color:aliceblue;
+}
