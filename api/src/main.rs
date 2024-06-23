@@ -1,18 +1,36 @@
-
 // imports
 use axum::{
-    extract::Path,
+    extract::{Json, Path},
     routing::get,
-    routing::post,
-    handler::Handler,
     Router,
 };
 
+use serde::{Deserialize, Serialize};
+use std::fs;
+
+// baby structs
+#[derive(Deserialize, Serialize, Debug, Clone)]
+struct Student {
+    id: u64,
+    name: String,
+    picture: String,
+    timetable: String,
+    year: u8, //7-13
+    house: char, // R/N/C/U
+    tutor: String,
+    subjects: Vec<String>
+}
+
 
 // STUDENT GETTERS
+fn all_students() -> Vec<Student> {
+    let students_json = fs::read_to_string("students.json").unwrap();
+    serde_json::from_str(&students_json).unwrap()
+}
 
-async fn student(Path(user_id): Path<u64>) -> String {
-    user_id.to_string()
+async fn student(Path(student_id): Path<u64>) -> Json<Student> {
+    let students = all_students();
+    Json(students.into_iter().find(|student| student.id == student_id).unwrap())
 }
 
 
@@ -25,7 +43,7 @@ async fn main() {
     .route("/", get(root))
     .route("/foo", get(get_foo).post(post_foo))
     .route("/foo/bar", get(foo_bar))
-    .route("/users/:user_id", get(student));
+    .route("/students/:student_id", get(student));
 
     // running with hyper, listening globally on port 3000
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();

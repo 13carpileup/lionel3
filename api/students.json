@@ -1,13 +1,10 @@
 [{
-    "id":9668, "info": [
-        {
-            "name":"John Macloy",
-            "picture":"https://lionel2.kgv.edu.hk/pluginfile.php/98182/user/icon/esfessential2/f3?rev=1",
-            "timetable":"9668.ics",
-            "year":12,
-            "house":"R",
-            "tutor":"R27",
-            "subjects":["epicing"]
-        }
-    ]
+    "id":9668, 
+    "name":"John Macloy",
+    "picture":"https://lionel2.kgv.edu.hk/pluginfile.php/98182/user/icon/esfessential2/f3?rev=1",
+    "timetable":"9668.ics",
+    "year":12,
+    "house":"R",
+    "tutor":"R27",
+    "subjects":["epicing"]
 }]
