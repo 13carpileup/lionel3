@@ -6,12 +6,9 @@ use axum::{
 };
 
 use serde::{Deserialize, Serialize};
-use serde_json::to_string;
 use std::fs;
 use std::fs::File;
 use std::io::Read;
-use std::io::BufReader;
-use std::io::prelude::*;
 use tower_http::{cors::CorsLayer, trace::TraceLayer};
 
 // baby structs
@@ -41,7 +38,7 @@ fn all_students() -> Vec<Student> {
 
 //timetable
 fn get_timetable(student_id: u64) -> String {
-    let mut base_path: String = "/timetables/ ".to_owned();
+    let mut base_path: String = "timetables/".to_owned();
     let id: String = student_id.to_string().to_owned();
     let file_ext: String = ".ics".to_owned();
 
@@ -49,9 +46,10 @@ fn get_timetable(student_id: u64) -> String {
     base_path.push_str(&file_ext);
 
 
-    let mut file = File::open(base_path).expect("Unable to open");
-    let mut contents = String::new();
-    file.read_to_string(&mut contents);
+    println!("With text:\n{base_path}");
+
+    let contents = fs::read_to_string(base_path)
+        .expect("{base_path}");
     return contents;
 }
 
@@ -77,7 +75,7 @@ async fn main() {
     .route("/foo", get(get_foo).post(post_foo))
     .route("/foo/bar", get(foo_bar))
     .route("/students/:student_id", get(student))
-    .route("/students/timetable/:student_id", get())
+    .route("/students/timetable/:student_id", get(timetable))
     .layer(TraceLayer::new_for_http())
     .layer(CorsLayer::permissive());
 
