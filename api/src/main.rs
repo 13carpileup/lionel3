@@ -9,6 +9,7 @@ use serde::{Deserialize, Serialize};
 use std::fs;
 use substring::Substring; //don't wanna implement that
 use tower_http::{cors::CorsLayer, trace::TraceLayer};
+use std::collections::HashMap;
 
 // baby structs
 #[derive(Deserialize, Serialize, Debug, Clone)]
@@ -66,15 +67,26 @@ fn get_timetable(student_id: u64) -> String {
         subject:"err".to_string()
     };
 
+    let class_conversions = HashMap::from([
+        ("AA", "Maths AA"),
+        ("CP", "Computer Science"),
+        ("SP", "Spanish"),
+        ("PE", "Physical Education"),
+        ("PP", "Philosophy"),
+        ("EU", "English Lang Lit"),
+        ("TP", "IB Core"),
+        ("PH", "Physics"),
+    ]);
+
     for line in split_contents {
         if line.starts_with("SUMMARY") {
             current.id = line.substring(8,line.chars().count()).to_string();
-            println!("{cur}",cur=current.id);
         }
 
         else if line.starts_with("DESCRIPTION") {
             current.location = line.substring(20,line.chars().count()).to_string();
-            println!("{cur}",cur=current.location);
+            let class_acronym = current.id.substring(2,4);
+            current.subject = class_conversions[class_acronym].to_string();
         }
 
         else if line.starts_with("DTSTART") {
