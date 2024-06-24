@@ -42,6 +42,10 @@ fn all_students() -> Vec<Student> {
     serde_json::from_str(&students_json).unwrap()
 }
 
+fn get_period(timestamp: &String) -> usize {
+    3
+}
+
 //timetable
 fn get_timetable(student_id: u64) -> String {
     let mut base_path: String = "timetables/".to_owned();
@@ -57,15 +61,16 @@ fn get_timetable(student_id: u64) -> String {
     let contents = fs::read_to_string(base_path)
         .expect("{base_path}");
 
-    let mut timetable: Vec<Vec<Class>>; 
+    
 
     let split_contents = contents.split("\n");
 
-    let mut current = Class {
-        id:"err".to_string(),
-        location:"err".to_string(),
-        subject:"err".to_string()
+    let free = Class {
+        id: "Free".to_string(),
+        location: " ".to_string(),
+        subject:"Free".to_string(),
     };
+   
 
     let class_conversions = HashMap::from([
         ("AA", "Maths AA"),
@@ -77,6 +82,15 @@ fn get_timetable(student_id: u64) -> String {
         ("TP", "IB Core"),
         ("PH", "Physics"),
     ]);
+
+    let mut current = Class {
+        id:"err".to_string(),
+        location:"err".to_string(),
+        subject:"err".to_string()
+    };
+
+    let mut timetable = [[free; 5]; 10];
+    let mut days = 0;
 
     for line in split_contents {
         if line.starts_with("SUMMARY") {
@@ -91,6 +105,7 @@ fn get_timetable(student_id: u64) -> String {
 
         else if line.starts_with("DTSTART") {
             let timestamp = line.substring(8, line.chars().count()).to_string();
+            timetable[days][get_period(&timestamp)] = current;
             println!("{timestamp}");
         }
 
