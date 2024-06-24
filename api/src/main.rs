@@ -25,7 +25,7 @@ struct Student {
 
 struct Class {
     id: String,
-    teacher: String,
+    location: String,
     subject: String
 }
 
@@ -62,14 +62,24 @@ fn get_timetable(student_id: u64) -> String {
 
     let mut current = Class {
         id:"err".to_string(),
-        teacher:"err".to_string(),
+        location:"err".to_string(),
         subject:"err".to_string()
     };
 
     for line in split_contents {
-        if line.starts_with("SUMMARY:") {
+        if line.starts_with("SUMMARY") {
             current.id = line.substring(8,line.chars().count()).to_string();
             println!("{cur}",cur=current.id);
+        }
+
+        else if line.starts_with("DESCRIPTION") {
+            current.location = line.substring(20,line.chars().count()).to_string();
+            println!("{cur}",cur=current.location);
+        }
+
+        else if line.starts_with("DTSTART") {
+            let timestamp = line.substring(8, line.chars().count()).to_string();
+            println!("{timestamp}");
         }
 
     }
