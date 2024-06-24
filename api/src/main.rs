@@ -24,6 +24,7 @@ struct Student {
     subjects: Vec<String>
 }
 
+#[derive(Deserialize, Serialize, Debug, Clone)]
 struct Class {
     id: String,
     location: String,
@@ -47,7 +48,7 @@ fn get_period(timestamp: &String) -> usize {
 }
 
 //timetable
-fn get_timetable(student_id: u64) -> String {
+fn get_timetable(student_id: u64) -> Vec<Vec<Class>> {
     let mut base_path: String = "timetables/".to_owned();
     let id: String = student_id.to_string().to_owned();
     let file_ext: String = ".ics".to_owned();
@@ -89,7 +90,7 @@ fn get_timetable(student_id: u64) -> String {
         subject:"err".to_string()
     };
 
-    let mut timetable = [[free; 5]; 10];
+    let mut timetable = vec![vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()],vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()],vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()],vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()],vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()],vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()],vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()],vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()],vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()],vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()]]; 
     let mut days = 0;
 
     for line in split_contents {
@@ -105,12 +106,13 @@ fn get_timetable(student_id: u64) -> String {
 
         else if line.starts_with("DTSTART") {
             let timestamp = line.substring(8, line.chars().count()).to_string();
-            timetable[days][get_period(&timestamp)] = current;
+            timetable[days][get_period(&timestamp)] = current.clone();
             println!("{timestamp}");
         }
 
     }
-    return contents;
+
+    return timetable;
 }
 
 // /students/:id/
@@ -120,9 +122,9 @@ async fn student(Path(student_id): Path<u64>) -> Json<Student> {
 }
 
 // /students/timetable/:id
-async fn timetable(Path(student_id): Path<u64>) -> String {
+async fn timetable(Path(student_id): Path<u64>) -> Json<Vec<Vec<Class>>> {
     let timetable = get_timetable(student_id);
-    return timetable
+    Json(timetable.clone())
 }
 
 
