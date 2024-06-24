@@ -7,8 +7,7 @@ use axum::{
 
 use serde::{Deserialize, Serialize};
 use std::fs;
-use std::fs::File;
-use std::io::Read;
+use substring::Substring; //don't wanna implement that
 use tower_http::{cors::CorsLayer, trace::TraceLayer};
 
 // baby structs
@@ -22,6 +21,12 @@ struct Student {
     house: char, // R/N/C/U
     tutor: String,
     subjects: Vec<String>
+}
+
+struct Class {
+    id: String,
+    teacher: String,
+    subject: String
 }
 
 
@@ -50,6 +55,24 @@ fn get_timetable(student_id: u64) -> String {
 
     let contents = fs::read_to_string(base_path)
         .expect("{base_path}");
+
+    let mut timetable: Vec<Vec<Class>>; 
+
+    let split_contents = contents.split("\n");
+
+    let mut current = Class {
+        id:"err".to_string(),
+        teacher:"err".to_string(),
+        subject:"err".to_string()
+    };
+
+    for line in split_contents {
+        if line.starts_with("SUMMARY:") {
+            current.id = line.substring(8,line.chars().count()).to_string();
+            println!("{cur}",cur=current.id);
+        }
+
+    }
     return contents;
 }
 
