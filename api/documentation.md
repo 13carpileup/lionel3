@@ -23,17 +23,30 @@ The Lionel 2 student data API piggybacks off of official endpoints to allow appl
     "subjects":["english","spanish"]
 }
 ```
-------**TBD**-------
+
 
 **Endpoint**: `GET /students/timetable/:id`
 
 **Response**:
 ```json
 {
-    ...
+    [
+        [
+            {
+                "id":	"12SP501\r",
+                "location":	"LA204\r",
+                "subject":	"Spanish",
+                "period":	1
+            }
+            x 5...
+        ]
+        x 10...
+    ]
 }
-```
 
+returns a vec<vec<Class, 5>, 10>
+```
+------**TBD**-------
 
 **Endpoint**: `GET /students/homework/:id`
 
