@@ -23,6 +23,10 @@ fn all_students() -> Vec<structs::Student> {
     serde_json::from_str(&students_json).unwrap()
 }
 
+// -----------------
+// HANDLERS
+// -----------------
+
 // /students/:id/
 async fn student(Path(student_id): Path<u64>) -> Json<structs::Student> {
     let students = all_students();

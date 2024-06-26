@@ -6,5 +6,6 @@
     "year":12,
     "house":"R",
     "tutor":"R27",
-    "subjects":["english","spanish"]
+    "subjects":["english","spanish"],
+    "lionel_string":"e637b5e2f8ec8eb6c5690f745facd66c"
 }]

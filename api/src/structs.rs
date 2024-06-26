@@ -9,7 +9,8 @@ pub struct Student {
     pub year: u8, //7-13
     pub house: char, // R/N/C/U
     pub tutor: String,
-    pub subjects: Vec<String>
+    pub subjects: Vec<String>,
+    pub lionel_string: String
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]

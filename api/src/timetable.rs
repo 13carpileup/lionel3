@@ -2,6 +2,9 @@
 use std::fs;
 use std::collections::HashMap;
 use substring::Substring; //don't wanna implement that
+use error_chain::error_chain;
+use std::io::Read;
+use reqwest::blocking::get;
 
 
 fn get_period(uid: &String) -> usize {
@@ -100,3 +103,33 @@ pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
 
     return timetable;
 }
+
+pub fn requester(url : String) -> Result<()> {
+    
+
+    base_path.push_str(&id);
+    base_path.push_str(&file_ext);
+    let mut res = reqwest::blocking::get("")?;
+    let mut body = String::new();
+    res.read_to_string(&mut body)?;
+
+    Ok(())
+}
+
+
+//get timetable file from lionel and upload to /timetables/
+pub fn fetch_timetable(student_id: u64) {
+    let student = super::all_students().into_iter().find(|st| st.id == student_id).unwrap();
+    
+    let mut url: String = "https://lionel2.kgv.edu.hk/local/mis/calendar/timetable.php/".to_owned();
+    let id: String = student_id.to_string().to_owned();
+    let suspect: String = student.lionel_string.to_string().to_owned();
+    let file_ext: String = ".ics".to_owned();
+
+    base_path.push_str(&id);
+    base_path.push_str(&suspect);
+    base_path.push_str(&file_ext);
+
+    let req = requester(url);
+}
+
