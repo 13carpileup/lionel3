@@ -7,10 +7,24 @@ export function Countdown() {
     const [hours, setHours] = useState([]);
     const [minutes, setMinutes] = useState([]);
     const [seconds, setSeconds] = useState([]);
+    const [time, setTime] = useState("i love catland central");
     const stor = [];
     const deadline = [
     ["June, 28, 2024, 13:00", "FREEDOM"],
+    ["August, 14, 2024, 8:10", "no more freedom"],
+    ["August, 20, 2024, 8:00", "EE Deadline"]
     ]
+
+    useEffect(() => {
+      fetch('http://localhost:3000/students/'+userID)
+        .then(response => response.json())
+        .then(json => 
+          {
+            setTime("3");
+          }
+        )
+        .catch(error => console.error(error));
+    }, []);
     
     for (let i = 0; i < deadline.length; i++) {
       const time = Date.parse(deadline[i][0])  - Date.now();
