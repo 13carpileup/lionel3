@@ -2,6 +2,38 @@
 use std::fs;
 use std::collections::HashMap;
 use substring::Substring; //don't wanna implement that
+use std::thread;
+use std::fs::File;
+use std::io::Write;
+
+#[tokio::main]
+async fn requester(url: String, id:u64) -> Result<(), Box<dyn std::error::Error>> {
+    println!("{url}");
+    let response = reqwest::get(&url).await?;
+    println!("step one?");
+    
+    let bytesResponse = response.bytes().await?;
+
+
+    let fileName = format!("../timetables/{id}");
+    let mut data_file = File::create(fileName).expect("creation failed");
+    data_file.write_all(bytesResponse);
+
+    println!("DONE");
+    Ok(())
+}
+
+
+//get timetable file from lionel and upload to /timetables/
+pub fn fetch_timetable(student_id: u64) {    
+    let url: String = format!("https://lionel2.kgv.edu.hk/local/mis/calendar/timetable.php/{student_id}/e637b5e2f8ec8eb6c5690f745facd66c.ics");
+
+    println!("Running fetch:");
+    thread::spawn(|| {
+        requester(url,student_id);
+    }).join().expect("Thread panicked")
+
+}
 
 
 fn get_period(uid: &String) -> usize {
@@ -71,7 +103,6 @@ pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
         if line.starts_with("UID") {
             let timestamp = line.substring(4, line.chars().count()).to_string();
             current.period = get_period(&timestamp);
-            println!("{timestamp}");
         }
 
         else if line.starts_with("SUMMARY") {
@@ -85,7 +116,6 @@ pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
             current.subject = class_conversions[class_acronym].to_string();
             timetable[days][current.period - 1] = current.clone();
 
-            println!("{days}, {cur}", cur = current.period);
 
             if current.period == 5 {
                 days += 1;
@@ -103,31 +133,4 @@ pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
     return timetable;
 }
 
-#[tokio::main]
-async fn requester() -> Result<(), Box<dyn std::error::Error>> {
-    let resp = reqwest::get("https://httpbin.org/ip")
-        .await?
-        .json::<HashMap<String, String>>()
-        .await?;
-    println!("HEREREER {resp:#?}");
-    Ok(())
-}
-
-
-//get timetable file from lionel and upload to /timetables/
-pub async fn fetch_timetable(student_id: u64) {
-    let student = super::all_students().into_iter().find(|st| st.id == student_id).unwrap();
-    
-    let mut url: String = "https://lionel2.kgv.edu.hk/local/mis/calendar/timetable.php/".to_owned();
-    let id: String = student_id.to_string().to_owned();
-    let suspect: String = student.lionel_string.to_string().to_owned();
-    let file_ext: String = ".ics".to_owned();
-
-    url.push_str(&id);
-    url.push_str(&suspect);
-    url.push_str(&file_ext);
-
-    requester();
-
-}
 
