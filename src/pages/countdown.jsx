@@ -16,7 +16,7 @@ export function Countdown() {
     ]
 
     useEffect(() => {
-      fetch('http://localhost:3000/students/'+userID)
+      fetch('https://lionel45.shuttleapp.rs/students/'+userID)
         .then(response => response.json())
         .then(json => 
           {
