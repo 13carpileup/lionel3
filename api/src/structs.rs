@@ -20,3 +20,12 @@ pub struct Class {
     pub subject: String,
     pub period: usize,
 }
+
+#[derive(Deserialize, Serialize, Debug, Clone)]
+pub struct bulletin_post {
+    pub tagline: String,
+    pub text: String,
+    pub author: String,
+    pub year: u64,
+    pub house: char
+}
