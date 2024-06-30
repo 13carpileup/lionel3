@@ -41,10 +41,10 @@ async fn timetable(Path(student_id): Path<u64>) -> Json<Vec<Vec<structs::Class>>
 
 
 // main
-#[tokio::main]
-async fn main() {
+#[shuttle_runtime::main]
+async fn main() -> shuttle_axum::ShuttleAxum {
     // routes
-    let app = Router::new()
+    let router = Router::new()
     .route("/", get(root))
     .route("/foo", get(get_foo).post(post_foo))
     .route("/foo/bar", get(foo_bar))
@@ -53,9 +53,7 @@ async fn main() {
     .layer(TraceLayer::new_for_http())
     .layer(CorsLayer::permissive());
 
-    // running with hyper, listening globally on port 3000
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
-    axum::serve(listener, app).await.unwrap();
+    Ok(router.into())
 }
 
 

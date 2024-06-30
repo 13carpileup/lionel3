@@ -2,9 +2,6 @@
 use std::fs;
 use std::collections::HashMap;
 use substring::Substring; //don't wanna implement that
-use error_chain::error_chain;
-use std::io::Read;
-use reqwest::blocking::get;
 
 
 fn get_period(uid: &String) -> usize {
