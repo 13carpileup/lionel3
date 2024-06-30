@@ -56,7 +56,7 @@ pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
     base_path.push_str(&id);
     base_path.push_str(&file_ext);
 
-    fetch_timetable(9668);
+    fetch_timetable(student_id);
 
 
     println!("With text:\n{base_path}");
@@ -130,7 +130,11 @@ pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
 
             current.location = line.substring(20,line.chars().count()).to_string();
             let class_acronym = current.id.substring(2,4);
-            current.subject = class_conversions[class_acronym].to_string();
+            if (class_conversions.contains_key(class_acronym)){
+                current.subject = class_conversions[class_acronym].to_string();
+            } else {
+                current.subject = class_acronym.to_string();
+            }
             timetable[days][current.period - 1] = current.clone();
 
             
