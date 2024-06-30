@@ -11,12 +11,8 @@ use chrono::Weekday;
 
 #[tokio::main]
 async fn requester(url: String, id:u64) -> Result<(), Box<dyn std::error::Error>> {
-    println!("{url}");
-    let response = reqwest::get(&url).await?;
-    println!("step one?");
-    
+    let response = reqwest::get(&url).await?;    
     let bytes_response: axum::body::Bytes = response.bytes().await?;
-    
 
     let file_name = format!("timetables/{id}.ics");
     let mut data_file = File::create(file_name).expect("creation failed");
@@ -31,7 +27,7 @@ async fn requester(url: String, id:u64) -> Result<(), Box<dyn std::error::Error>
 pub fn fetch_timetable(student_id: u64) {    
     let url: String = format!("https://lionel2.kgv.edu.hk/local/mis/calendar/timetable.php/{student_id}/e637b5e2f8ec8eb6c5690f745facd66c.ics");
 
-    println!("Running fetch:");
+    println!("Running fetch (timetable):");
     thread::spawn(move || {
         requester(url,student_id);
     }).join().expect("Thread panicked")

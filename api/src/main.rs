@@ -1,7 +1,7 @@
 // importing mods
 mod timetable;
 mod structs;
-
+mod bulletin;
 
 // imports
 use axum::{
@@ -39,6 +39,11 @@ async fn timetable(Path(student_id): Path<u64>) -> Json<Vec<Vec<structs::Class>>
     Json(timetable.clone())
 }
 
+// /bulletin
+async fn bulletin() -> String {
+    bulletin::get_bulletin()
+}
+
 
 // main
 #[shuttle_runtime::main]
@@ -46,10 +51,9 @@ async fn main() -> shuttle_axum::ShuttleAxum {
     // routes
     let router = Router::new()
     .route("/", get(root))
-    .route("/foo", get(get_foo).post(post_foo))
-    .route("/foo/bar", get(foo_bar))
     .route("/students/:student_id", get(student))
     .route("/students/timetable/:student_id", get(timetable))
+    .route("/bulletin", get(bulletin))
     .layer(TraceLayer::new_for_http())
     .layer(CorsLayer::permissive());
 
@@ -59,8 +63,5 @@ async fn main() -> shuttle_axum::ShuttleAxum {
 
 // main route functions (async, type dec)
 async fn root() -> &'static str {
-     "Hello, !" 
+     "Read the documentation for this api at https://github.com/13carpileup/lionel3/blob/main/api/documentation.md"
 }
-async fn get_foo() {}
-async fn post_foo() {}
-async fn foo_bar() {}
