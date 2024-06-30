@@ -5,6 +5,9 @@ use substring::Substring; //don't wanna implement that
 use std::thread;
 use std::fs::File;
 use std::io::Write;
+use chrono::Datelike;
+use chrono::Weekday;
+
 
 #[tokio::main]
 async fn requester(url: String, id:u64) -> Result<(), Box<dyn std::error::Error>> {
@@ -12,12 +15,12 @@ async fn requester(url: String, id:u64) -> Result<(), Box<dyn std::error::Error>
     let response = reqwest::get(&url).await?;
     println!("step one?");
     
-    let bytesResponse = response.bytes().await?;
+    let bytes_response: axum::body::Bytes = response.bytes().await?;
+    
 
-
-    let fileName = format!("../timetables/{id}");
-    let mut data_file = File::create(fileName).expect("creation failed");
-    data_file.write_all(bytesResponse);
+    let file_name = format!("timetables/{id}.ics");
+    let mut data_file = File::create(file_name).expect("creation failed");
+    data_file.write_all(&bytes_response);
 
     println!("DONE");
     Ok(())
@@ -29,7 +32,7 @@ pub fn fetch_timetable(student_id: u64) {
     let url: String = format!("https://lionel2.kgv.edu.hk/local/mis/calendar/timetable.php/{student_id}/e637b5e2f8ec8eb6c5690f745facd66c.ics");
 
     println!("Running fetch:");
-    thread::spawn(|| {
+    thread::spawn(move || {
         requester(url,student_id);
     }).join().expect("Thread panicked")
 
@@ -96,7 +99,15 @@ pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
         timetable.push(vec![free.clone(),free.clone(),free.clone(),free.clone(),free.clone()]);
     }
     
-    let mut days = 1;
+    let current_time = chrono::offset::Local::now();
+    let mut days: usize = current_time.date_naive().weekday().days_since(Weekday::Mon).try_into().unwrap();
+
+    if days >= 5 {
+        days = 5;
+    } 
+
+    // in case someone has a free 5th (not me though LMAO!!!!)
+    let mut four_flag: bool = false;
 
     for line in split_contents {
 
@@ -111,14 +122,25 @@ pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
         
         // once we get here we must be complete parsing the subject
         else if line.starts_with("DESCRIPTION") {
+
+            if four_flag && current.period != 5 {
+                days += 1;
+                four_flag = false;
+            } 
+
             current.location = line.substring(20,line.chars().count()).to_string();
             let class_acronym = current.id.substring(2,4);
             current.subject = class_conversions[class_acronym].to_string();
             timetable[days][current.period - 1] = current.clone();
 
-
+            
             if current.period == 5 {
                 days += 1;
+                four_flag = false;
+            }
+
+            if current.period == 4 {
+                four_flag = true;
             }
 
             if days > 9 {
