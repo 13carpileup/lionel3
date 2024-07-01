@@ -22,10 +22,10 @@ pub struct Class {
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
-pub struct bulletin_post {
+pub struct BulletinPost {
     pub tagline: String,
     pub text: String,
     pub author: String,
-    pub year: u64,
-    pub house: char
+    pub target: bool, // does the post have any specific target audience? (y12/rowell/etc)
+    pub target_aud: String
 }

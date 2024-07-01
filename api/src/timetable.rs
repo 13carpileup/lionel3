@@ -16,9 +16,11 @@ async fn requester(url: String, id:u64) -> Result<(), Box<dyn std::error::Error>
 
     let file_name = format!("timetables/{id}.ics");
     let mut data_file = File::create(file_name).expect("creation failed");
-    data_file.write_all(&bytes_response);
+    match data_file.write_all(&bytes_response) {
+        Ok(_v) => println!("ICS SUCCESS"),
+        Err(_e) => println!("FAILED TO WRITE ICS, ID = {id}"),
+    }
 
-    println!("DONE");
     Ok(())
 }
 
@@ -29,7 +31,10 @@ pub fn fetch_timetable(student_id: u64) {
 
     println!("Running fetch (timetable):");
     thread::spawn(move || {
-        requester(url,student_id);
+        match requester(url,student_id) {
+            Ok(_v) => println!("Success"),
+            Err(_e) => println!("Error")
+        }
     }).join().expect("Thread panicked")
 
 }
@@ -126,7 +131,7 @@ pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
 
             current.location = line.substring(20,line.chars().count()).to_string();
             let class_acronym = current.id.substring(2,4);
-            if (class_conversions.contains_key(class_acronym)){
+            if class_conversions.contains_key(class_acronym) {
                 current.subject = class_conversions[class_acronym].to_string();
             } else {
                 current.subject = class_acronym.to_string();

@@ -40,7 +40,7 @@ async fn timetable(Path(student_id): Path<u64>) -> Json<Vec<Vec<structs::Class>>
 }
 
 // /bulletin
-async fn bulletin() -> Json<Vec<structs::bulletin_post>> {
+async fn bulletin() -> Json<Vec<structs::BulletinPost>> {
     let cur_bulletin = bulletin::get_bulletin();
     Json(cur_bulletin.clone())
 }
