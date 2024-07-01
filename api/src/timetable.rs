@@ -50,20 +50,15 @@ fn get_period(uid: &String) -> usize {
 
 //timetableasdas
 pub fn get_timetable(student_id: u64) -> Vec<Vec<super::structs::Class>> {
-    let mut base_path: String = "timetables/".to_owned();
-    let id: String = student_id.to_string().to_owned();
-    let file_ext: String = ".ics".to_owned();
-
-    base_path.push_str(&id);
-    base_path.push_str(&file_ext);
+    let path = format!("timetables/{student_id}.ics");
 
     fetch_timetable(student_id);
 
 
-    println!("With text:\n{base_path}");
+    println!("With text:\n{path}");
 
-    let contents = fs::read_to_string(base_path)
-        .expect("{base_path}");
+    let contents = fs::read_to_string(path)
+        .expect("{path}");
 
     
 

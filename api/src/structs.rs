@@ -29,3 +29,11 @@ pub struct BulletinPost {
     pub target: bool, // does the post have any specific target audience? (y12/rowell/etc)
     pub target_aud: String
 }
+
+#[derive(Deserialize, Serialize, Debug, Clone)]
+pub struct Homework {
+    pub class: String,
+    pub due_date: String,
+    pub text: String,
+    pub time: String
+}

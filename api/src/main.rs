@@ -2,6 +2,8 @@
 mod timetable;
 mod structs;
 mod bulletin;
+mod student_helpers;
+mod homework;
 
 // imports
 use axum::{
@@ -39,6 +41,12 @@ async fn timetable(Path(student_id): Path<u64>) -> Json<Vec<Vec<structs::Class>>
     Json(timetable.clone())
 }
 
+// /students/homework//:id
+async fn homework(Path(student_id): Path<u64>) -> Json<Vec<structs::Homework>> {
+    let homework = homework::get_homework(student_id);
+    Json(homework.clone())
+}
+
 // /bulletin
 async fn bulletin() -> Json<Vec<structs::BulletinPost>> {
     let cur_bulletin = bulletin::get_bulletin();
@@ -54,6 +62,7 @@ async fn main() -> shuttle_axum::ShuttleAxum {
     .route("/", get(root))
     .route("/students/:student_id", get(student))
     .route("/students/timetable/:student_id", get(timetable))
+    .route("/students/homework/:student_id", get(homework))
     .route("/bulletin", get(bulletin))
     .layer(TraceLayer::new_for_http())
     .layer(CorsLayer::permissive());
