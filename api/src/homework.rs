@@ -26,23 +26,43 @@ fn parse_homework(ics_file: String) -> Vec<super::structs::Homework> {
         class: "Error".to_string(),
         due_date: "Error".to_string(),
         text: "Error".to_string(),
-        time: "Error".to_string()
+        time: "N/A".to_string()
  
-    }
+    };
 
-    let output: Vec<super::structs::Homework> = Vec::new();
+    let mut output: Vec<super::structs::Homework> = Vec::new();
+    let mut description_flag = false;
 
     for line in split_string {
-        if line.starts_with("DESCRIPTION") {
-            current.text = line.substring(12, line.chars().count()).to_string();
+
+        if description_flag && !line.starts_with("CLASS:") {
+            current.text = format!("{og}{line}",og = current.text);
         }
 
-        if line.starts_with("CLASS") {
+        else if line.starts_with("CLASS:") {
+            description_flag = false;
+        }
+
+        else if line.starts_with("DESCRIPTION:") {
+            current.text = line.substring(12, line.chars().count()).to_string();
+            description_flag = true;
+        }
+
+        else if line.starts_with("SUMMARY:") {
             current.class = line.substring(6, line.chars().count()).to_string();
+        }
+
+        else if line.starts_with("DTSTART:") {
+            println!("APPENDING... {line}");
+            current.due_date = format!("{day}/{month}/{year}", day = line.substring(14,16), month = line.substring(12,14), year = line.substring(8,12));
+            output.push(current.clone());
+            println!("SIZE: {size}", size = output.len());
         }
     }
 
-    output
+
+    println!("SIZE FINAL: {size}", size = output.len());
+    return output;
 }
 
 pub fn get_homework(student_id: u64) -> Vec<super::structs::Homework> {
@@ -52,11 +72,17 @@ pub fn get_homework(student_id: u64) -> Vec<super::structs::Homework> {
         let hw = fetch_homework(student_id);
 
         match hw {
-            Ok(v) => return parse_homework(v),
-            Err(_e) => return vec!(),
+            Ok(v) => {
+                let x = parse_homework(v); 
+                return x;},
+
+            Err(e) => {
+                println!("{e}"); 
+                return vec!();
+            },
         }
-    }).join().expect("Thread panicked");
+    }).join().expect("Thread panicked")
 
 
-    vec!()
+    
 }
