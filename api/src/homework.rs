@@ -19,6 +19,7 @@ async fn fetch_homework(student_id: u64) -> Result<String, Box<dyn std::error::E
     Ok(string_response.to_string())
 }
 
+
 fn parse_homework(ics_file: String) -> Vec<super::structs::Homework> {
     let split_string = ics_file.split("\n");
 

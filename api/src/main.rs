@@ -9,10 +9,11 @@ mod verification;
 // imports
 use axum::{
     extract::{Json, Path},
-    routing::get,
+    routing::{get,post},
     Router,
 };
 
+use serde::Deserialize;
 use std::fs;
 use tower_http::{cors::CorsLayer, trace::TraceLayer};
 
@@ -54,12 +55,13 @@ async fn bulletin() -> Json<Vec<structs::BulletinPost>> {
     Json(cur_bulletin.clone())
 }
 
-// /verify/:student_id/:lionel_string
-async fn verify(Path((student_id, lionel_string)): Path<(u64, String)>) -> String {
-    let check = verification::verify_user(student_id, lionel_string.clone());
+// /verify/:student_id
+// lionel string passed in the payload (needs to be encrypted)
+async fn verify(Path(student_id): Path<u64>, Json(payload): Json<CreateUserPayload>) -> String {
+    let check = verification::verify_user(student_id, payload.lionel_string.clone());
     
     if check {
-        student_helpers::update_student_data(student_id, lionel_string);
+        student_helpers::update_student_data(student_id, payload.lionel_string);
 
         return "true".to_string();
     }
@@ -67,6 +69,12 @@ async fn verify(Path((student_id, lionel_string)): Path<(u64, String)>) -> Strin
         return "false".to_string();
     }
     
+}
+
+// payload for verification
+#[derive(Deserialize)]
+struct CreateUserPayload {
+    lionel_string: String
 }
 
 
@@ -80,7 +88,7 @@ async fn main() -> shuttle_axum::ShuttleAxum {
     .route("/students/timetable/:student_id", get(timetable))
     .route("/students/homework/:student_id", get(homework))
     .route("/bulletin", get(bulletin))
-    .route("/verify/:student_id/:lionel_string", get(verify))
+    .route("/verify/:student_id", get(verify).post(verify))
     .layer(TraceLayer::new_for_http())
     .layer(CorsLayer::permissive());
 

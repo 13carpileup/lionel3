@@ -62,7 +62,7 @@ fn parse_bulletin(raw: String) -> Vec<super::structs::BulletinPost> {
     for element in document.select(&selector) {
         let classes = element.value().classes();
         for class in classes {
-            if class == "itemdistribution" {
+            if class == "itemdistibrution" {
                 dist.push(element.inner_html());
             }
         }
