@@ -25,3 +25,30 @@ pub fn get_classes(student_id: u64) -> Vec<String> {
     
     classes
 }
+
+pub fn update_student_data(student_id: u64, lionel_string: String) {
+    let students = super::all_students();
+    let mut exists: bool = false;
+
+    for student in students {
+        if student.id == student_id {
+            exists = true;
+        }
+    }
+
+    if !exists {
+        let mut new_student = super::structs::Student {
+            id: student_id,
+            name: "Name".to_string(),
+            picture: "image.jpg".to_string(),
+            timetable: format!("{student_id}.ics"),
+            year: 32,
+            house: 'r',
+            tutor: "something".to_string(),
+            subjects: vec!(),
+            lionel_string: lionel_string
+        };
+
+        
+    }
+}

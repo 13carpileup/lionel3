@@ -56,9 +56,11 @@ async fn bulletin() -> Json<Vec<structs::BulletinPost>> {
 
 // /verify/:student_id/:lionel_string
 async fn verify(Path((student_id, lionel_string)): Path<(u64, String)>) -> String {
-    let check = verification::verify_user(student_id, lionel_string);
+    let check = verification::verify_user(student_id, lionel_string.clone());
     
     if check {
+        student_helpers::update_student_data(student_id, lionel_string);
+
         return "true".to_string();
     }
     else {
