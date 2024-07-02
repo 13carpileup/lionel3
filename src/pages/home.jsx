@@ -23,7 +23,7 @@ export function Home() {
                 return errors;
             }}
             onSubmit={(values   ) => {
-                fetch('https://lionel45.shuttleapp.rs/students/verify/'+ values.email, {
+                fetch('https://lionel45.shuttleapp.rs/verify/'+ values.email, {
                     method: "POST",
                     body: JSON.stringify({ lionel_string: values.st }),
                     headers: { 
