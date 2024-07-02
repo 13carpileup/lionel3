@@ -4,6 +4,7 @@ mod structs;
 mod bulletin;
 mod student_helpers;
 mod homework;
+mod verification;
 
 // imports
 use axum::{
@@ -53,6 +54,19 @@ async fn bulletin() -> Json<Vec<structs::BulletinPost>> {
     Json(cur_bulletin.clone())
 }
 
+// /verify/:student_id/:lionel_string
+async fn verify(Path((student_id, lionel_string)): Path<(u64, String)>) -> String {
+    let check = verification::verify_user(student_id, lionel_string);
+    
+    if check {
+        return "true".to_string();
+    }
+    else {
+        return "false".to_string();
+    }
+    
+}
+
 
 // main
 #[shuttle_runtime::main]
@@ -64,6 +78,7 @@ async fn main() -> shuttle_axum::ShuttleAxum {
     .route("/students/timetable/:student_id", get(timetable))
     .route("/students/homework/:student_id", get(homework))
     .route("/bulletin", get(bulletin))
+    .route("/verify/:student_id/:lionel_string", get(verify))
     .layer(TraceLayer::new_for_http())
     .layer(CorsLayer::permissive());
 
