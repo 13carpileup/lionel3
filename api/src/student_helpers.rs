@@ -23,7 +23,11 @@ pub fn get_classes(student_id: u64) -> Vec<String> {
 
     for line in split_contents {
         if line.starts_with("SUMMARY:") {
-            classes.push(line.to_string().substring(8, line.chars().count() - 2).to_string())
+            let class = line.to_string().substring(8, line.chars().count() - 2).to_string();
+
+            if !classes.contains(&class) {
+                classes.push(class);
+            }
         }
     }
     

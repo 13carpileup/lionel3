@@ -1,22 +1,20 @@
 # lionel3
 
-A replacement for the infamous 
-[lionel 2](https://lionel2.kgv.edu.hk/).
+A replacement for the infamous [lionel 2](https://lionel2.kgv.edu.hk/). 
 
 This project is currently WIP.
 
 ```
 Current features:
- - Mock Countdown
+ - Exam Countdown
+ - Student data API
+ - User Verification
  ```
  
  ```
  Features to come:
-  - Schedule + Photo finder
-  - Login method
-  - Bulletin scraper
-  - Homework scraper
-  - Classes display
+  - Calendar API
+  - Classes Display / Messaging
   ```
   
 Lionel 3 is currently being hosted by vercel at 

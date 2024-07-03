@@ -39,9 +39,10 @@ export function Home() {
                     } else {
                         console.log("FAILURE");
                         console.log(response);
+                        
                         // TODO: Replace with better fail page
-                        window.location.replace('/#/user/LOSER');
                         window.location.reload();
+                        values.st = "FAIL";
                     }
                 })
                 .catch(error => console.error(error));
