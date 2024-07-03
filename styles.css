@@ -10,9 +10,6 @@ html {
     margin-top:0;
 }
 
-p {
-    color: red;
-}
 
 nav ul {
     margin:0;
@@ -230,3 +227,35 @@ hr {
 .subjectList { 
     color:aliceblue;
 }
+
+.subheading {
+    margin: 3vw;
+    font-style: normal;
+    font-weight: 600;
+    color: rgb(248, 185, 255);
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.timetable {
+    display: inline-block;
+}
+
+.timetable_list {
+    display: inline-block;
+    list-style: none;
+}
+
+.period {
+    display: inline-block;
+    width:12vw;
+    height: 6vw;
+    margin: 3vw;
+    color:antiquewhite;
+}
+
+.homework {
+    margin:4vw;
+    color:white;
+}
+

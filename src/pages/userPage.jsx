@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import React, {useEffect, useState} from 'react';
-
+import ReactHtmlParser from 'react-html-parser';
 
 export function UserPage() {
   const {userID} = useParams()
@@ -9,6 +9,8 @@ export function UserPage() {
   const [name, setName] = useState("Name Fetch Failed");
   const [subjects,setSubjects] = useState([]);
   const [year, setYear] = useState(null);
+  const [timetable, setTimetable] = useState([[]]);
+  const [homework, setHomework] = useState([]);
 
 
   useEffect(() => {
@@ -23,6 +25,24 @@ export function UserPage() {
         }
       )
       .catch(error => console.error(error));
+
+    fetch('https://lionel45.shuttleapp.rs/students/timetable/'+userID)
+    .then(response => response.json())
+    .then(json => 
+      {
+        setTimetable(json);
+      }
+    )
+    .catch(error => console.error(error));
+
+    fetch('https://lionel45.shuttleapp.rs/students/homework/'+userID)
+    .then(response => response.json())
+    .then(json => 
+      {
+        setHomework(json);
+      }
+    )
+    .catch(error => console.error(error));
   }, []);
 
   return (
@@ -30,7 +50,7 @@ export function UserPage() {
       {ID ? 
         <>
           <h4 class = "name">{name}</h4>
-          <p>{ID}</p>
+          <p class = "subheading">Classes: (debugging)</p>
           {
             subjects.map((subject, i) =>
               <>
@@ -42,6 +62,41 @@ export function UserPage() {
               </>
             )
           }
+
+
+          <div class = "timetable">
+            {
+              timetable.map((day, i) =>
+                <div class = "period">
+                  <p>Day {i + 1}</p>
+                  <ul class = "timetable_list">
+                  {day.map((period, j) => 
+                    <>
+                      <li class = "timetable_period">
+                      {period.subject}
+                      </li>
+                    </>
+                  )}
+                  </ul>
+
+                </div>
+            
+            ) 
+            }
+          </div>
+
+          <div class = "homework"> 
+          
+          {
+            homework.map((entry, i) =>
+            <>
+              <h4>Homework Entry:</h4>
+              {ReactHtmlParser(entry.text)}
+            </>
+          )
+          }
+          
+          </div>
         </>
 
       : <p>'Loading...'</p>}
