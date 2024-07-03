@@ -37,3 +37,11 @@ pub struct Homework {
     pub text: String,
     pub time: String
 }
+
+#[derive(Deserialize, Serialize, Debug, Clone)]
+pub struct Event {
+    pub text: String,
+    pub year: u64,
+    pub month: u64,
+    pub day: u64
+}

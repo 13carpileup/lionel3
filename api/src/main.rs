@@ -5,6 +5,7 @@ mod bulletin;
 mod student_helpers;
 mod homework;
 mod verification;
+mod calendar;
 
 // imports
 use axum::{
@@ -40,19 +41,25 @@ async fn student(Path(student_id): Path<u64>) -> Json<structs::Student> {
 // /students/timetable/:id
 async fn timetable(Path(student_id): Path<u64>) -> Json<Vec<Vec<structs::Class>>> {
     let timetable = timetable::get_timetable(student_id);
-    Json(timetable.clone())
+    Json(timetable)
 }
 
 // /students/homework//:id
 async fn homework(Path(student_id): Path<u64>) -> Json<Vec<structs::Homework>> {
     let homework = homework::get_homework(student_id);
-    Json(homework.clone())
+    Json(homework)
 }
 
 // /bulletin
 async fn bulletin() -> Json<Vec<structs::BulletinPost>> {
     let cur_bulletin = bulletin::get_bulletin();
-    Json(cur_bulletin.clone())
+    Json(cur_bulletin)
+}
+
+// /calendar
+async fn calendar() -> Json<Vec<structs::Event>> {
+    let calendar = calendar::get_events();
+    Json(calendar)
 }
 
 // /verify/:student_id
@@ -89,6 +96,7 @@ async fn main() -> shuttle_axum::ShuttleAxum {
     .route("/students/homework/:student_id", get(homework))
     .route("/bulletin", get(bulletin))
     .route("/verify/:student_id", get(verify).post(verify))
+    .route("/calendar", get(calendar))
     .layer(TraceLayer::new_for_http())
     .layer(CorsLayer::permissive());
 
