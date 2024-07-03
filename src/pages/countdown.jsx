@@ -7,24 +7,33 @@ export function Countdown() {
     const [hours, setHours] = useState([]);
     const [minutes, setMinutes] = useState([]);
     const [seconds, setSeconds] = useState([]);
-    const [time, setTime] = useState("i love catland central");
+    const [events, setEvents] = useState([]);
     const stor = [];
-    const deadline = [
+    let deadline = [
     ["June, 28, 2024, 13:00", "FREEDOM"],
     ["August, 14, 2024, 8:10", "no more freedom"],
-    ["August, 20, 2024, 8:00", "EE Deadline"]
+    ["November, 14, 2024, 8:00", "EE Deadline"]
     ]
 
+    let months = {1:"January",2:"February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"};
+
+
     useEffect(() => {
-      fetch('https://lionel45.shuttleapp.rs/students/'+userID)
+      fetch('https://lionel45.shuttleapp.rs/calendar')
         .then(response => response.json())
         .then(json => 
           {
-            setTime("3");
+            setEvents(json);
           }
         )
         .catch(error => console.error(error));
     }, []);
+
+    for (let i = 0; i < events.length; i++) {
+      let string = months[events[i].month] + ", " + events[i].day + ", " + events[i].year + ", 8:00";
+      deadline.push(["November, 14, 2024, 8:00", events[i].text]);
+      console.log(string);
+    }
     
     for (let i = 0; i < deadline.length; i++) {
       const time = Date.parse(deadline[i][0])  - Date.now();
