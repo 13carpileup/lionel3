@@ -69,12 +69,12 @@ h3 {
     color:beige;
     font-style: italic;
     font-weight: 100;
-    margin-top:-40px;
+    margin: 3vw;
+    margin-top: -2vw;
+    font-style: italic;
 }
 
-.subheading {
-    margin-left:20px;
-}
+
 
 #container span { 
     display: inline;
@@ -154,7 +154,8 @@ hr {
 }
 
 .mainButton {
-    margin-left:20px;
+    margin:1.7vw;
+    width: 5vw;
     border-radius: 2px;
     font-family: 'Poppins', sans-serif; 
     background-color: rgb(255, 169, 249);
@@ -228,8 +229,7 @@ hr {
     color:aliceblue;
 }
 
-.subheading {
-    margin: 3vw;
+.subheading1 {
     font-style: normal;
     font-weight: 600;
     color: rgb(248, 185, 255);

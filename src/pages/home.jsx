@@ -12,9 +12,9 @@ export function Home() {
             <p class="subheading">It's like lionel 2, but better.</p>
             <br></br>
             <div class = "sub">
-            <h4 class="rqst">Please enter your unique id:</h4>
+            <h4 class="rqst">Please enter your lionel username:</h4>
             <Formik
-            initialValues={{ email: '', st: 'string'}}
+            initialValues={{ email: '', st: ''}}
             validate={values => {
                 const errors = {};
                 if (!values.email) {
@@ -22,10 +22,14 @@ export function Home() {
                 }
                 return errors;
             }}
-            onSubmit={(values   ) => {
+            onSubmit={(values) => {
+                let n = values.st.length;
+                let lionel_string = values.st.substring(n-36, n-4);
+                console.log(lionel_string);
+
                 fetch('https://lionel45.shuttleapp.rs/verify/'+ values.email, {
                     method: "POST",
-                    body: JSON.stringify({ lionel_string: values.st }),
+                    body: JSON.stringify({ lionel_string: lionel_string }),
                     headers: { 
                         'Accept': 'application/json',
                         'Content-Type': 'application/json' 
@@ -66,6 +70,8 @@ export function Home() {
                     onBlur={handleBlur}
                     value={values.email}
                 />
+                <br/>
+                <h4 class = "rqst">Please enter your homework API link:</h4>
                 <input
                     class="emailEntry"
                     name="st"
@@ -73,8 +79,9 @@ export function Home() {
                     onBlur={handleBlur}
                     value={values.st}
                 />
+                <br/>
                 <button class = "mainButton" type="submit" disabled={isSubmitting}>
-                    Send
+                    Login
                 </button>
                 </form>
             )}

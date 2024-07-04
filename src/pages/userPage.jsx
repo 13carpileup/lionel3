@@ -50,7 +50,7 @@ export function UserPage() {
       {ID ? 
         <>
           <h4 class = "name">{name}</h4>
-          <p class = "subheading">Classes: (debugging)</p>
+          <p class = "subheading1">Classes: (debugging)</p>
           {
             subjects.map((subject, i) =>
               <>
