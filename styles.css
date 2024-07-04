@@ -190,27 +190,22 @@ hr {
     transition: opacity 1s ease-in-out;
 }
 
+.fade
+
 .fade-enter {
     opacity: 0;
-    transform: translate(0, 25px);
-    z-index: 1;
-  }
-  .fade-enter.fade-enter-active {
+}
+  .fade-enter-active {
     opacity: 1;
-    transform: translate(0, 0);
-  
-    transition: opacity 350ms ease-out, transform 400ms ease;
-  }
+    transition: opacity 300ms;
+}
   .fade-exit {
     opacity: 1;
-    transform: translate(0, 0);
-  }
-  .fade-exit.fade-exit-active {
+}
+  .fade-exit-active {
     opacity: 0;
-    transform: translate(0, 30px);
-  
-    transition: opacity 350ms ease-out, transform 400ms ease;
-  }
+    transition: opacity 300ms;
+}
 
 .sub {
     display:block;
@@ -257,5 +252,10 @@ hr {
 .homework {
     margin:4vw;
     color:white;
+}
+
+.herehere {
+    position: absolute;
+    width: 100%;
 }
 

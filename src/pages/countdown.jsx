@@ -70,8 +70,8 @@ export function Countdown() {
     }, []);
 
     return (
-      <div class="fade">
-        <div class="parallax">
+      <div class = "herehere">
+        <div>
 
         <h2>Exam Countdown</h2>
         

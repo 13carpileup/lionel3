@@ -23,10 +23,9 @@ function App() {
       </nav>
 
       <TransitionGroup component={null}>
-        <CSSTransition timeout={3000} classNames='fade' key={location.key} unmountOnExit> 
+        <CSSTransition class = "herehere" timeout={300} classNames='fade' key={location.key} unmountOnExit> 
           <Routes location={location}>
             <Route path="/" element={<Home/>}/>
-            
             <Route path="/countdown" element={<Countdown/>}/>
             <Route path="/user/:userID" element={<UserPage/>}/>
           </Routes>

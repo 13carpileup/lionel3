@@ -7,7 +7,7 @@ export function Home() {
     return (
         
         
-        <div class = "fade">
+        <div class = "herehere">
             <h1>Lionel 3</h1>
             <p class="subheading">It's like lionel 2, but better.</p>
             <br></br>
