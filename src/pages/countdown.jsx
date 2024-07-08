@@ -10,9 +10,8 @@ export function Countdown() {
     const [events, setEvents] = useState([]);
     const stor = [];
     let deadline = [
-    ["June, 28, 2024, 13:00", "FREEDOM"],
     ["August, 14, 2024, 8:10", "no more freedom"],
-    ["November, 14, 2024, 8:00", "EE Deadline"]
+    ["August, 20, 2024, 8:00", "EE Deadline"]
     ]
 
     let months = {1:"January",2:"February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"};
